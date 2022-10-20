@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=1.0, minimum-scale=1.0, maximum-scale=1.0"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>embedded iframe test</title>
+  </head>
+  <body>
+    <div id="main">
+      <h1>embedded iframe</h1>
+      <h2 id="parentTitle">parent</h2>
+      <div id="iframeWrapper">
+        <iframe id="mySuperSecretSRC">
+        </iframe>
+      </div>
+      <div id="parentText">
+        <p>ダミーテキスト</p>
+        <p>ダミーテキスト</p>
+        <p>ダミーテキスト</p>
+        <p>ダミーテキスト</p>
+        <p>ダミーテキスト</p>
+        <p>ダミーテキスト</p>
+        <p>ダミーテキスト</p>
+        <p>ダミーテキスト</p>
+        <p>ダミーテキスト</p>
+        <p>ダミーテキスト</p>
+        <p>ダミーテキスト</p>
+        <p>ダミーテキスト</p>
+        <p>ダミーテキスト</p>
+        <p>ダミーテキスト</p>
+        <p>ダミーテキスト</p>
+        <p>ダミーテキスト</p>
+        <p>ダミーテキスト</p>
+        <p>ダミーテキスト</p>
+        <p>ダミーテキスト</p>
+        <p>ダミーテキスト</p>
+        <p>ダミーテキスト</p>
+        <p>ダミーテキスト</p>
+        <p>ダミーテキスト</p>
+        <p>ダミーテキスト</p>
+        <p>ダミーテキスト</p>
+        <p>ダミーテキスト</p>
+        <p>ダミーテキスト</p>
+        <p>ダミーテキスト</p>
+        <p>ダミーテキスト</p>
+        <p>ダミーテキスト</p>
+        <p>ダミーテキスト</p>
+        <p>ダミーテキスト</p>
+        <p>ダミーテキスト</p>
+        <p>ダミーテキスト</p>
+        <p>ダミーテキスト</p>
+        <p>ダミーテキスト</p>
+        <p>ダミーテキスト</p>
+        <p>ダミーテキスト</p>
+        <p>ダミーテキスト</p>
+        <p>ダミーテキスト</p>
+        <p>ダミーテキスト</p>
+        <p>ダミーテキスト</p>
+        <p>ダミーテキスト</p>
+        <p>ダミーテキスト</p>
+        <p>ダミーテキスト</p>
+        <p>ダミーテキスト</p>
+        <p>ダミーテキスト</p>
+        <p>ダミーテキスト</p>
+        <p>ダミーテキスト</p>
+        <p>ダミーテキスト</p>
+        <p>ダミーテキスト</p>
+        <p>ダミーテキスト</p>
+        <p>ダミーテキスト</p>
+        <p>ダミーテキスト</p>
+        <p>ダミーテキスト</p>
+        <p>ダミーテキスト</p>
+        <p>ダミーテキスト</p>
+        <p>ダミーテキスト</p>
+        <p>ダミーテキスト</p>
+        <p>ダミーテキスト</p>
+        <p>ダミーテキスト</p>
+        <p>ダミーテキスト</p>
+        <p>ダミーテキスト</p>
+        <p>ダミーテキスト</p>
+        <p>ダミーテキスト</p>
+        <p>ダミーテキスト</p>
+        <p>ダミーテキスト</p>
+        <p>ダミーテキスト</p>
+        <p>ダミーテキスト</p>
+        <p>ダミーテキスト</p>
+        <p>ダミーテキスト</p>
+        <p>ダミーテキスト</p>
+        <p>ダミーテキスト</p>
+        <p>ダミーテキスト</p>
+        <p>ダミーテキスト</p>
+        <p>ダミーテキスト</p>
+        <p>ダミーテキスト</p>
+        <p>ダミーテキスト</p>
+      </div>
+    </div>
+  </body>
+  <script>
+    jQuery(document).ready(function() {
+      document.querySelector('iframe').contentDocument.write(`
+      <html id="iframeHTML">
+        <body id="iframebody">
+          <h3 id="iframeTitle">here is iframe</h3>
+        </body>
+      </html>
+      \x3Cscript type="text/javascript">
+        // 親domを取得
+        var parentWindow = window.parent
+
+        // 親domの要素にアクセス
+        var parentTarget = parentWindow.document.getElementById('parentTitle')
+        console.log("parentTarget↓")
+        console.log(parentTarget)
+
+        // 親のscroll Eventを取得
+        parentWindow.addEventListener('scroll', function() {
+	        scroll_position = parentWindow.pageYOffset;
+	        console.log(scroll_position);
+        });
+      \x3C/script>
+      `
+      )
+    });
+  </script>
+</html>

@@ -1,0 +1,19 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+      $(function () {
+        $('#childBtn').click(function () {
+          $('#parentTitle',parent.document).css({color:'rgb(106, 153, 135)'});
+          $('#parentText', parent.document).stop().animate({ opacity: '0' });
+        })
+      })
+    </script>
+  </head>
+  <body>
+    <h2 id="childTitle">child</h2>
+    <button id="childBtn" class="button" type="input">親要素変更</button>
+  </body>
+</html>
